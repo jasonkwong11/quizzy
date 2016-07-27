@@ -33,7 +33,7 @@ class QuizzesController < ApplicationController
     end
   end
 
-  post "/quizzes/:id/edit" do
+  post "/quizzes/:id/edit1" do
     @quiz = Quiz.find_by_id(params[:id])
     if is_logged_in? && current_user.id == @quiz.user_id
       erb :'quizzes/edits/edit1'
@@ -41,6 +41,7 @@ class QuizzesController < ApplicationController
       redirect to '/login'
     end
   end
+
 
 
 end

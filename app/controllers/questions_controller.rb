@@ -80,6 +80,15 @@ class QuestionsController < ApplicationController
     erb :'quizzes/edits/edit1'
   end
 
+  post "/quizzes/:id/edit1" do
+    @quiz = Quiz.find_by_id(params[:id])
+    if is_logged_in? && current_user.id == @quiz.user_id
+      erb :'quizzes/edits/edit1'
+    else
+      redirect to '/login'
+    end
+  end
+
   patch '/quizzes/:id/edit1' do
     if params[:one].values.include?("")
       flash[:message] = "Please fill in all sections"
@@ -105,6 +114,15 @@ class QuestionsController < ApplicationController
     erb :'quizzes/edits/edit2'
   end
 
+  post "/quizzes/:id/edit2" do
+    @quiz = Quiz.find_by_id(params[:id])
+    if is_logged_in? && current_user.id == @quiz.user_id
+      erb :'quizzes/edits/edit2'
+    else
+      redirect to '/login'
+    end
+  end
+
   patch '/quizzes/:id/edit2' do
     if params[:two].values.include?("")
       flash[:message] = "Please fill in all sections"
@@ -121,7 +139,7 @@ class QuestionsController < ApplicationController
       @question.choice5 = params[:two][:choice5]
       @question.save
       @quiz.save
-      redirect to '/quizzes/:id/edit3'
+      redirect to '/quizzes/#{quiz.id}/edit2'
     end
   end
 
