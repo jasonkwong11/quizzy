@@ -28,13 +28,29 @@ e.) <%= question.choice5 %><br>
 
 <form action="/quizzes/<%= @quiz.id %>/edit1" method="post">
   <input id="hidden" type="hidden" name="_method" value="edit">
-  <input type="submit" value="Wait, let me edit Question 1">
+  <input type="submit" value="Edit Question 1">
 </form>
 
 <form action="/quizzes/<%= @quiz.id %>/edit2" method="post">
   <input id="hidden" type="hidden" name="_method" value="edit">
-  <input type="submit" value="Wait, let me edit Question 2">
+  <input type="submit" value="Edit Question 2">
 </form>
+
+<form action="/quizzes/<%= @quiz.id %>/edit3" method="post">
+  <input id="hidden" type="hidden" name="_method" value="edit">
+  <input type="submit" value="Edit Question 3">
+</form>
+
+<form action="/quizzes/<%= @quiz.id %>/edit4" method="post">
+  <input id="hidden" type="hidden" name="_method" value="edit">
+  <input type="submit" value="Edit Question 4">
+</form>
+
+<form action="/quizzes/<%= @quiz.id %>/edit5" method="post">
+  <input id="hidden" type="hidden" name="_method" value="edit">
+  <input type="submit" value="Edit Question 5">
+</form>
+
 
 <form action="/quizzes/<%= @quiz.id %>/delete" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">

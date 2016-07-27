@@ -142,5 +142,109 @@ class QuestionsController < ApplicationController
       redirect to '/quizzes/#{quiz.id}/edit2'
     end
   end
+#+====
+
+  get '/quizzes/:id/edit3' do
+    erb :'quizzes/edits/edit3'
+  end
+
+  post "/quizzes/:id/edit3" do
+    @quiz = Quiz.find_by_id(params[:id])
+    if is_logged_in? && current_user.id == @quiz.user_id
+      erb :'quizzes/edits/edit3'
+    else
+      redirect to '/login'
+    end
+  end
+
+  patch '/quizzes/:id/edit3' do
+    if params[:three].values.include?("")
+      flash[:message] = "Please fill in all sections"
+      redirect to '/quizzes/:id/edit3'
+    else  
+      @quiz = Quiz.find_by_id(params[:id])
+      @question = @quiz.questions[2]
+      @question.text = params[:three][:text]
+      @question.answer = params[:answer]
+      @question.choice1 = params[:three][:choice1]
+      @question.choice2 = params[:three][:choice2]
+      @question.choice3 = params[:three][:choice3]
+      @question.choice4 = params[:three][:choice4]
+      @question.choice5 = params[:three][:choice5]
+      @question.save
+      @quiz.save
+      redirect to '/quizzes/#{quiz.id}/edit4'
+    end
+  end
+
+  #+++========
+
+  get '/quizzes/:id/edit4' do
+    erb :'quizzes/edits/edit4'
+  end
+
+  post "/quizzes/:id/edit4" do
+    @quiz = Quiz.find_by_id(params[:id])
+    if is_logged_in? && current_user.id == @quiz.user_id
+      erb :'quizzes/edits/edit4'
+    else
+      redirect to '/login'
+    end
+  end
+
+  patch '/quizzes/:id/edit4' do
+    if params[:four].values.include?("")
+      flash[:message] = "Please fill in all sections"
+      redirect to '/quizzes/:id/edit4'
+    else  
+      @quiz = Quiz.find_by_id(params[:id])
+      @question = @quiz.questions[3]
+      @question.text = params[:four][:text]
+      @question.answer = params[:answer]
+      @question.choice1 = params[:four][:choice1]
+      @question.choice2 = params[:four][:choice2]
+      @question.choice3 = params[:four][:choice3]
+      @question.choice4 = params[:four][:choice4]
+      @question.choice5 = params[:four][:choice5]
+      @question.save
+      @quiz.save
+      redirect to '/quizzes/#{quiz.id}/edit5'
+    end
+  end
+
+  #=========
+
+  get '/quizzes/:id/edit5' do
+    erb :'quizzes/edits/edit5'
+  end
+
+  post "/quizzes/:id/edit5" do
+    @quiz = Quiz.find_by_id(params[:id])
+    if is_logged_in? && current_user.id == @quiz.user_id
+      erb :'quizzes/edits/edit5'
+    else
+      redirect to '/login'
+    end
+  end
+
+  patch '/quizzes/:id/edit5' do
+    if params[:five].values.include?("")
+      flash[:message] = "Please fill in all sections"
+      redirect to '/quizzes/:id/edit5'
+    else  
+      @quiz = Quiz.find_by_id(params[:id])
+      @question = @quiz.questions[4]
+      @question.text = params[:five][:text]
+      @question.answer = params[:answer]
+      @question.choice1 = params[:five][:choice1]
+      @question.choice2 = params[:five][:choice2]
+      @question.choice3 = params[:five][:choice3]
+      @question.choice4 = params[:five][:choice4]
+      @question.choice5 = params[:five][:choice5]
+      @question.save
+      @quiz.save
+      redirect to '/quizzes/#{quiz.id}/edit5'
+    end
+  end
 
 end
