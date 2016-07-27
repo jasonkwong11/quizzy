@@ -10,10 +10,11 @@ class QuestionsController < ApplicationController
 
   post '/quizzes/questions/new1' do
     @question = Question.new(params[:one])
+    @quiz = Quiz.last
     @question.answer = params[:answer]
-    @question.quiz_id = Quiz.last.id
+    @question.quiz_id = @quiz.id
     @question.save
-    Quiz.last.questions << @question
+    @quiz.questions << @question
     redirect to 'quizzes/questions/new2'
   end
 
@@ -23,10 +24,11 @@ class QuestionsController < ApplicationController
 
   post '/quizzes/questions/new2' do
     @question = Question.new(params[:two])
+    @quiz = Quiz.last
     @question.answer = params[:answer]
-    @question.quiz_id = Quiz.last.id
+    @question.quiz_id = @quiz.id
     @question.save
-    Quiz.last.questions << @question
+    @quiz.questions << @question
     redirect to 'quizzes/questions/new3'
   end
 
@@ -36,10 +38,11 @@ class QuestionsController < ApplicationController
 
   post '/quizzes/questions/new3' do
     @question = Question.new(params[:three])
+    @quiz = Quiz.last
     @question.answer = params[:answer]
-    @question.quiz_id = Quiz.last.id
+    @question.quiz_id = @quiz.id
     @question.save
-    Quiz.last.questions << @question
+    @quiz.questions << @question
     redirect to 'quizzes/questions/new4'
   end
 
@@ -49,10 +52,11 @@ class QuestionsController < ApplicationController
 
   post '/quizzes/questions/new4' do
     @question = Question.new(params[:four])
+    @quiz = Quiz.last
     @question.answer = params[:answer]
-    @question.quiz_id = Quiz.last.id
+    @question.quiz_id = @quiz.id
     @question.save
-    Quiz.last.questions << @question
+    @quiz.questions << @question
     redirect to 'quizzes/questions/new5'
   end
 

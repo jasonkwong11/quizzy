@@ -1,0 +1,10 @@
+<h1>Welcome, <%=@user.name%>. Here are all the quizzes:</h1>
+<br>
+
+<% @quizzes.each_with_index do |quiz, index|%>
+
+ <%= index+1 %>
+
+ <%= quiz.name %><br>
+
+<%end%>
