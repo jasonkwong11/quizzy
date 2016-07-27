@@ -12,6 +12,7 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.new(name: params[:quiz][:name])
     date_created = Time.new
     @quiz.date = date_created
+    @quiz.user_id = current_user.id
     @quiz.save
     redirect to '/quizzes/questions/new1'
   end
