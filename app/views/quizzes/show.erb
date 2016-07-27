@@ -1,0 +1,38 @@
+<h1>THIS IS A SINGLE QUIZ'S SHOW PAGE</h1><br>
+<h1>SHOW PAGE FOR <%=@quiz.name%></h1>
+
+<br>
+<br>
+
+<% @questions.each_with_index do |question, index|%>
+
+ <%= index+1 %>
+
+ <%= question.text %><br>
+a.) <%= question.choice1 %><br>
+b.) <%= question.choice2 %><br>
+c.) <%= question.choice3 %><br>
+d.) <%= question.choice4 %><br>
+e.) <%= question.choice5 %><br>
+
+<br>
+<label>Answer:</label>
+<%= question.answer %><br><br><br>
+<%end%>
+
+
+<a href="/">Done!</a>
+
+<br>
+<br>
+
+<form action="/quizzes/<%= @quiz.id %>/edit" method="post">
+  <input id="hidden" type="hidden" name="_method" value="edit">
+  <input type="submit" value="Wait, let me edit this">
+</form>
+
+
+<form action="/quizzes/<%= @quiz.id %>/delete" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="Hmm, let just delete this..">
+</form>

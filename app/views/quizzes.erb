@@ -7,4 +7,10 @@
 
  <%= quiz.name %><br>
 
+ <form action="/quizzes/<%= quiz.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="show">
+  <input type="submit" value="<%= quiz.name %>">
+</form>
+
+
 <%end%>

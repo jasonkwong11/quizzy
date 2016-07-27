@@ -1,10 +1,8 @@
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %>
+<form action='/quizzes/<%= @quiz.id %>/edit1' method="post">
+ <input id="hidden" type="hidden" name="_method" value="patch">
 
-<form action='/quizzes/questions/new1' method="post">
 
-<h1>CREATE YOUR FIRST QUESTION HERE!</h1>
+<h1>EDIT YOUR FIRST QUESTION HERE </h1>
 
 <br>
 <br>
@@ -50,6 +48,6 @@
 <br>
 
 
-<input type="submit" value="Next...">
+<input type="submit" value="Submit">
 
 </form>

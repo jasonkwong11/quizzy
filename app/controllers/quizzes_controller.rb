@@ -23,6 +23,24 @@ class QuizzesController < ApplicationController
     erb :'quizzes'
   end
 
+  post '/quizzes/:id' do
+    if is_logged_in?
+      @quiz = Quiz.find_by_id(params[:id])
+      @questions = @quiz.questions
+      erb :'quizzes/show'
+    else
+      redirect to '/login'
+    end
+  end
+
+  post "/quizzes/:id/edit" do
+    @quiz = Quiz.find_by_id(params[:id])
+    if is_logged_in? && current_user.id == @quiz.user_id
+      erb :'quizzes/edits/edit1'
+    else
+      redirect to '/login'
+    end
+  end
 
 
 end

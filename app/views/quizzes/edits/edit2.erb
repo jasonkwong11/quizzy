@@ -1,39 +1,38 @@
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %>
 
-<form action='/quizzes/questions/new1' method="post">
+<form action='/quizzes/<%= @quiz.id %>/edit2' method="post">
+ <input id="hidden" type="hidden" name="_method" value="patch">
 
-<h1>CREATE YOUR FIRST QUESTION HERE!</h1>
+
+<h1>EDIT YOUR SECOND QUESTION HERE </h1>
 
 <br>
 <br>
 <h2><label>Remember! These are multiple choice questions!</h2></label>
-<label> Question 1: </label>
-<input type="text" name="one[text]" id="one_text">
+<label> Question 2: </label>
+<input type="text" name="two[text]" id="two_text">
 
 <br>
 
 <label> a.) </label>
-<input type="text" name="one[choice1]" id="one_choice1">
+<input type="text" name="two[choice1]" id="two_choice1">
 
 <br>
 
 <label> b.) </label>
-<input type="text" name="one[choice2]" id="one_choice2">
+<input type="text" name="two[choice2]" id="two_choice2">
 
 <br>
 
 <label> c.) </label>
-<input type="text" name="one[choice3]" id="one_choice3">
+<input type="text" name="two[choice3]" id="two_choice3">
 <br>
 
 <label> d.) </label>
-<input type="text" name="one[choice4]" id="one_choice4">
+<input type="text" name="two[choice4]" id="two_choice4">
 
 <br>
 <label> e.) </label>
-<input type="text" name="one[choice5]" id="one_choice5">
+<input type="text" name="two[choice5]" id="two_choice5">
 
 <br>
 <label> The Correct Answer is... </label>
