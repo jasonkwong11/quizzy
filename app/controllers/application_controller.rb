@@ -28,15 +28,14 @@ use Rack::Flash
     end
 
   post '/signup' do
-    if params[:user].values.include?("") || !params[:type]
-
+    if params[:user].values.include?("")
       flash[:message] = "Please fill in all sections"
       redirect to '/signup'
     else
-      @user = User.new(params[:user])
+      @user = User.new(name: params[:user][:name], email: params[:user][:email], password: params[:user][:password])
       @user.save
       @session = session
-      @session[:id] = @user.id
+      @session[:user_id] = @user.id
     redirect to '/index'
     end
   end
@@ -50,9 +49,9 @@ use Rack::Flash
   end
 
   post '/login' do
-    @user = User.find_by(name: params[:name], password: )
-    if @user && user.authenticate(params[:password])
-      session[:id] = @user.id
+    user = User.find_by(name: params[:name])
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
       redirect to '/index'
     else
       flash[:message] = "Error. Please try again."
@@ -77,11 +76,11 @@ use Rack::Flash
 #Helper methods
 helpers do
   def current_user
-    User.find(session[:id])
+    User.find(session[:user_id])
   end
 
   def is_logged_in?
-    true if session[:id]
+    true if session[:user_id]
   end
 end
 
