@@ -1,0 +1,23 @@
+
+<h1>THIS IS THE ANSWER KEY FOR <%=@quiz.name%></h1>
+
+<br>
+<br>
+
+<% @questions.each_with_index do |question, index|%>
+
+ <%= index+1 %>
+
+ <%= question.text %><br>
+a.) <%= question.choice1 %><br>
+b.) <%= question.choice2 %><br>
+c.) <%= question.choice3 %><br>
+d.) <%= question.choice4 %><br>
+e.) <%= question.choice5 %><br>
+
+THE CORRECT ANSWER IS: <%= question.answer %><br>
+<br>
+<%end%>
+
+
+<a href="/index">Done!</a>

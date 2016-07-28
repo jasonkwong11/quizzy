@@ -39,7 +39,25 @@ class QuizzesController < ApplicationController
     redirect to '/quizzes/'
   end
 
+  get '/quizzes/:id/answerkey' do
+    if is_logged_in?
+      @quiz = Quiz.find_by_id(params[:id])
+      @questions = @quiz.questions
+      erb :'quizzes/answerkey'
+    else
+      redirect to '/login'
+    end
+  end
 
+  post '/quizzes/:id/answerkey' do
+    if is_logged_in?
+      @quiz = Quiz.find_by_id(params[:id])
+      @questions = @quiz.questions
+      erb :'quizzes/answerkey'
+    else
+      redirect to '/login'
+    end
+  end
 
 
 end

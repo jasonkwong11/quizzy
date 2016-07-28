@@ -16,12 +16,10 @@ d.) <%= question.choice4 %><br>
 e.) <%= question.choice5 %><br>
 
 <br>
-<label>Answer:</label>
-<%= question.answer %><br><br><br>
 <%end%>
 
 
-<a href="/">Done!</a>
+<a href="/index">Done!</a>
 
 <br>
 <br>
@@ -51,8 +49,12 @@ e.) <%= question.choice5 %><br>
   <input type="submit" value="Edit Question 5">
 </form>
 
+<form action="/quizzes/<%= @quiz.id %>/answerkey" method="post">
+  <input id="hidden" type="hidden" name="_method" value="edit">
+  <input type="submit" value="Answer Key">
+</form>
 
 <form action="/quizzes/<%= @quiz.id %>/delete" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
-  <input type="submit" value="Hmm, let just delete this..">
+  <input type="submit" value="Hmm, let's just delete this..">
 </form>
