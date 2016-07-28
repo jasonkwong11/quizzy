@@ -33,14 +33,12 @@ class QuizzesController < ApplicationController
     end
   end
 
-  post "/quizzes/:id/edit1" do
-    @quiz = Quiz.find_by_id(params[:id])
-    if is_logged_in? && current_user.id == @quiz.user_id
-      erb :'quizzes/edits/edit1'
-    else
-      redirect to '/login'
-    end
+  delete '/quizzes/:id/delete' do
+    @quiz = Quiz.find_by(id: params[:id])
+    @quiz.delete if current_user.id == @quiz.user_id
+    redirect to '/quizzes/'
   end
+
 
 
 

@@ -15,6 +15,7 @@ class QuestionsController < ApplicationController
     @question.quiz_id = @quiz.id
     @question.save
     @quiz.questions << @question
+    @quiz.save
     redirect to 'quizzes/questions/new2'
   end
 
@@ -29,6 +30,7 @@ class QuestionsController < ApplicationController
     @question.quiz_id = @quiz.id
     @question.save
     @quiz.questions << @question
+    @quiz.save
     redirect to 'quizzes/questions/new3'
   end
 
@@ -43,6 +45,7 @@ class QuestionsController < ApplicationController
     @question.quiz_id = @quiz.id
     @question.save
     @quiz.questions << @question
+    @quiz.save
     redirect to 'quizzes/questions/new4'
   end
 
@@ -57,6 +60,7 @@ class QuestionsController < ApplicationController
     @question.quiz_id = @quiz.id
     @question.save
     @quiz.questions << @question
+    @quiz.save
     redirect to 'quizzes/questions/new5'
   end
 
@@ -71,6 +75,7 @@ class QuestionsController < ApplicationController
     @question.quiz_id = @quiz.id
     @question.save
     @quiz.questions << @question
+    @quiz.save
     redirect to '/quizzes/'
   end
 ######============EDIT ROUTES=============
