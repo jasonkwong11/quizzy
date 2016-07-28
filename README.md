@@ -6,7 +6,7 @@ A sqlite database
 ActiveRecord
 RESTful routes
 Sessions
-Login/Logout
+Login/Logout (password encryption using bcrypt gem)
 
 # Usage
 To use this app, just clone, run rake db:migrate and then run shotgun. Everything should be set up.
