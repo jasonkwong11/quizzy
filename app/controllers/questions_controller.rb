@@ -90,7 +90,8 @@ class QuestionsController < ApplicationController
     if is_logged_in? && current_user.id == @quiz.user_id
       erb :'quizzes/edits/edit1'
     else
-      redirect to '/login'
+      flash[:message] = "You can only edit quizzes you create!"
+      redirect to '/quizzes/'
     end
   end
 
