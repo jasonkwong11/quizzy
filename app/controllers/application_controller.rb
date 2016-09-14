@@ -1,4 +1,3 @@
-require 'pry'
 require './config/environment'
 require 'rack-flash' 
 
